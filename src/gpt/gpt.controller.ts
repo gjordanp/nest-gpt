@@ -4,14 +4,10 @@ import { OrthographyDto } from './dtos';
 
 @Controller('gpt')
 export class GptController {
-  constructor(private readonly gptService: GptService) { }
+  constructor(private readonly gptService: GptService) {}
 
   @Post('orthography-check')
-  orthographyCheck(
-    @Body() orthographyDto: OrthographyDto
-  ) {
-    return orthographyDto
-    // return this.gptService.orthographyCheck();
+  orthographyCheck(@Body() orthographyDto: OrthographyDto) {
+    return this.gptService.orthographyCheck(orthographyDto);
   }
-
 }
